@@ -1,0 +1,34 @@
+{% extends "stats/base.html" %}
+{% load stats_tags %}
+{% block content %}
+
+
+<h2>England All Time ODIs</h2>
+<table class="left sortable">
+<caption>Batting</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>NO</th><th>Runs</th><th>HS</th><th>Ave</th><th>BF</th><th>SR</th><th>100s</th><th>50s</th><th>0s</th><th>4s</th><th>6s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ batting_list|list_index:i|list_index:0 }}
+    </td><td>{{ batting_list|list_index:i|list_index:1 }}</td><td>{{ batting_list|list_index:i|list_index:2 }}</td><td>{{ batting_list|list_index:i|list_index:3 }}</td><td>{{ batting_list|list_index:i|list_index:4 }}</td><td>{{ batting_list|list_index:i|list_index:5 }}</td><td>{{ batting_list|list_index:i|list_index:6 }}</td><td>{{ batting_list|list_index:i|list_index:7 }}</td><td>{{ batting_list|list_index:i|list_index:8 }}</td><td>{{ batting_list|list_index:i|list_index:9 }}</td><td>{{ batting_list|list_index:i|list_index:10 }}</td><td>{{ batting_list|list_index:i|list_index:11 }}</td><td>{{ batting_list|list_index:i|list_index:12 }}</td><td>{{ batting_list|list_index:i|list_index:13 }}</td><td>{{ batting_list|list_index:i|list_index:14 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+<table class="right sortable">
+<caption>Bowling</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>Balls</th><th>Runs</th><th>Wkts</th><th>BBI</th><th>Ave</th><th>Econ</th><th>SR</th><th>4s</th><th>5s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ bowling_list|list_index:i|list_index:0 }}</td><td>{{ bowling_list|list_index:i|list_index:1 }}</td><td>{{ bowling_list|list_index:i|list_index:2 }}</td><td>{{ bowling_list|list_index:i|list_index:3 }}</td><td>{{ bowling_list|list_index:i|list_index:4 }}</td><td>{{ bowling_list|list_index:i|list_index:5 }}</td><td>{{ bowling_list|list_index:i|list_index:6 }}</td><td>{{ bowling_list|list_index:i|list_index:7 }}</td><td>{{ bowling_list|list_index:i|list_index:8 }}</td><td>{{ bowling_list|list_index:i|list_index:9 }}</td><td>{{ bowling_list|list_index:i|list_index:10 }}</td><td>{{ bowling_list|list_index:i|list_index:11 }}</td><td>{{ bowling_list|list_index:i|list_index:12 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+{% endblock content %}
