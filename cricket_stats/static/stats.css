@@ -1,0 +1,74 @@
+body {
+    font-family:Play, Verdana;
+    padding-left:2%;
+    padding-right:2%;
+    background-color:#eee;
+}
+
+h1 {
+    font-size:2.25em;
+
+}
+
+a {
+    padding-right:10px;
+    font-weight: :bold;
+}
+
+/* Links - Look at Learning Linux to get the focussed link highlighted */
+
+a:link{
+  color:#2a6eaf;
+}
+a:visited{
+  color:#2a6eaf;
+}
+a:hover{
+  color:#751629;
+}
+a:focus{
+  color:#751629;
+}
+a:active{
+  color:#751629;
+}
+
+table {
+   border-collapse: collapse;
+}
+
+table, td, th {
+    border-style:groove;
+    
+}
+
+/* Sortable tables */
+table.sortable thead {
+    background-color:#2a6eaf;
+    font-weight: bold;
+    cursor: default;
+    color: black;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
+
+caption {
+    font-weight:bold;
+    padding-bottom:5px;
+}
+
+.left {
+    float: left;
+    width: 30%;
+}
+
+.right {
+    float: right;
+    width: 30%;
+}
+
+.tables {
+    padding-top: 10px;
+}
