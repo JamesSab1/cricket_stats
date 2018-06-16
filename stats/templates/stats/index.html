@@ -1,630 +1,143 @@
 {% extends "stats/base.html" %}
 {% load stats_tags %}
 {% block content %}
-<p></p>
-<form name="gurumenu" method="GET" action="" enctype="application/x-www-form-urlencoded" style="margin: 0; padding: 0;">
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr>
- <td width=150></td>
- <td width=450></td>
-</tr>
-<tr style="height:27px; text-align:right; vertical-align:middle;">
- <td colspan=2 style="border-bottom:1px solid #b2b2b2;">
-  <input type="hidden" name="class" value="1">
-  <input type="hidden" name="filter" value="">
-<b>Basic filter</b>
- |
-<a href="/ci/engine/stats/index.html?class=1;filter=advanced;type=batting">Advanced filter</a>
- </td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Team:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<select name="team" class="guruDropdown" style="vertical-align: middle; width:100%;">
-<option selected value="">all teams</option>
-<option value="2">Australia</option>
-<option value="25">Bangladesh</option>
-<option value="1">England</option>
-<option value="140">ICC World XI</option>
-<option value="6">India</option>
-<option value="29">Ireland</option>
-<option value="5">New Zealand</option>
-<option value="7">Pakistan</option>
-<option value="3">South Africa</option>
-<option value="8">Sri Lanka</option>
-<option value="4">West Indies</option>
-<option value="9">Zimbabwe</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Opposition:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<select name="opposition" class="guruDropdown" style="vertical-align: middle; width:100%;">
-<option selected value="">all teams</option>
-<option value="2">Australia</option>
-<option value="25">Bangladesh</option>
-<option value="1">England</option>
-<option value="140">ICC World XI</option>
-<option value="6">India</option>
-<option value="29">Ireland</option>
-<option value="5">New Zealand</option>
-<option value="7">Pakistan</option>
-<option value="3">South Africa</option>
-<option value="8">Sri Lanka</option>
-<option value="4">West Indies</option>
-<option value="9">Zimbabwe</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Home or away:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="home_or_away" value="1"> home venue</label>
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="home_or_away" value="2"> away (home of opposition)</label>
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="home_or_away" value="3"> neutral venue</label>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Host country:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<select name="host" class="guruDropdown" style="vertical-align: middle; width:100%;">
-<option selected value="">all countries</option>
-<option value="2">Australia</option>
-<option value="25">Bangladesh</option>
-<option value="1">England</option>
-<option value="6">India</option>
-<option value="29">Ireland</option>
-<option value="5">New Zealand</option>
-<option value="7">Pakistan</option>
-<option value="3">South Africa</option>
-<option value="8">Sri Lanka</option>
-<option value="27">United Arab Emirates</option>
-<option value="4">West Indies</option>
-<option value="9">Zimbabwe</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Ground:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<select name="ground" class="guruDropdown" style="vertical-align: middle; width:100%;">
-<option selected value="">all grounds</option>
-<option value="131">AUS: Adelaide Oval</option>
-<option value="905">AUS: Bellerive Oval, Hobart</option>
-<option value="209">AUS: Brisbane Cricket Ground, Woolloongabba, Brisbane</option>
-<option value="1066">AUS: Cazaly's Stadium, Cairns</option>
-<option value="188">AUS: Exhibition Ground, Brisbane</option>
-<option value="61">AUS: Melbourne Cricket Ground</option>
-<option value="132">AUS: Sydney Cricket Ground</option>
-<option value="1155">AUS: TIO Stadium, Darwin</option>
-<option value="213">AUS: W.A.C.A. Ground, Perth</option>
-<option value="475">BDESH: Bangabandhu National Stadium, Dhaka</option>
-<option value="1844">BDESH: Khan Shaheb Osman Ali Stadium, Fatullah</option>
-<option value="476">BDESH: MA Aziz Stadium, Chittagong</option>
-<option value="1925">BDESH: Shaheed Chandu Stadium, Bogra</option>
-<option value="1930">BDESH: Sheikh Abu Naser Stadium, Khulna</option>
-<option value="2025">BDESH: Shere Bangla National Stadium, Mirpur, Dhaka</option>
-<option value="1931">BDESH: Zahur Ahmed Chowdhury Stadium, Chittagong</option>
-<option value="62">ENG: Bramall Lane, Sheffield</option>
-<option value="164">ENG: Edgbaston, Birmingham</option>
-<option value="179">ENG: Headingley, Leeds</option>
-<option value="45">ENG: Kennington Oval, London</option>
-<option value="10">ENG: Lord's, London</option>
-<option value="75">ENG: Old Trafford, Manchester</option>
-<option value="1039">ENG: Riverside Ground, Chester-le-Street</option>
-<option value="644">ENG: Sophia Gardens, Cardiff</option>
-<option value="1184">ENG: The Rose Bowl, Southampton</option>
-<option value="34">ENG: Trent Bridge, Nottingham</option>
-<option value="442">INDIA: Barabati Stadium, Cuttack</option>
-<option value="393">INDIA: Brabourne Stadium, Mumbai</option>
-<option value="1896">INDIA: Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam</option>
-<option value="292">INDIA: Eden Gardens, Kolkata</option>
-<option value="333">INDIA: Feroz Shah Kotla, Delhi</option>
-<option value="461">INDIA: Gandhi Stadium, Jalandhar</option>
-<option value="419">INDIA: Green Park, Kanpur</option>
-<option value="189">INDIA: Gymkhana Ground, Mumbai</option>
-<option value="1920">INDIA: Himachal Pradesh Cricket Association Stadium, Dharamsala</option>
-<option value="1055">INDIA: Holkar Cricket Stadium, Indore</option>
-<option value="2575">INDIA: JSCA International Stadium Complex, Ranchi</option>
-<option value="580">INDIA: K.D.Singh 'Babu' Stadium, Lucknow</option>
-<option value="376">INDIA: Lal Bahadur Shastri Stadium, Hyderabad</option>
-<option value="683">INDIA: M.Chinnaswamy Stadium, Bengaluru</option>
-<option value="291">INDIA: MA Chidambaram Stadium, Chepauk, Chennai</option>
-<option value="2677">INDIA: Maharashtra Cricket Association Stadium, Pune</option>
-<option value="491">INDIA: Nehru Stadium, Madras</option>
-<option value="1015">INDIA: Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh</option>
-<option value="1981">INDIA: Rajiv Gandhi International Stadium, Uppal, Hyderabad</option>
-<option value="840">INDIA: Sardar Patel (Gujarat) Stadium, Motera, Ahmedabad</option>
-<option value="2401">INDIA: Saurashtra Cricket Association Stadium, Rajkot</option>
-<option value="664">INDIA: Sawai Mansingh Stadium, Jaipur</option>
-<option value="621">INDIA: Sector 16 Stadium, Chandigarh</option>
-<option value="464">INDIA: University Ground, Lucknow</option>
-<option value="367">INDIA: Vidarbha C.A. Ground, Nagpur</option>
-<option value="2399">INDIA: Vidarbha Cricket Association Stadium, Jamtha, Nagpur</option>
-<option value="713">INDIA: Wankhede Stadium, Mumbai</option>
-<option value="974">IRE: The Village, Malahide, Dublin</option>
-<option value="152">NZ: AMI Stadium, Christchurch</option>
-<option value="116">NZ: Basin Reserve, Wellington</option>
-<option value="155">NZ: Carisbrook, Dunedin</option>
-<option value="283">NZ: Eden Park, Auckland</option>
-<option value="93">NZ: Hagley Oval, Christchurch</option>
-<option value="453">NZ: McLean Park, Napier</option>
-<option value="504">NZ: Seddon Park, Hamilton</option>
-<option value="769">NZ: University Oval, Dunedin</option>
-<option value="879">PAK: Arbab Niaz Stadium, Peshawar</option>
-<option value="301">PAK: Bagh-e-Jinnah, Lahore</option>
-<option value="454">PAK: Bahawal Stadium, Bahawalpur</option>
-<option value="545">PAK: Gaddafi Stadium, Lahore</option>
-<option value="494">PAK: Ibn-e-Qasim Bagh Stadium, Multan</option>
-<option value="639">PAK: Iqbal Stadium, Faisalabad</option>
-<option value="844">PAK: Jinnah Stadium, Gujranwala</option>
-<option value="455">PAK: Jinnah Stadium, Sialkot</option>
-<option value="1597">PAK: Multan Cricket Stadium</option>
-<option value="487">PAK: National Stadium, Karachi</option>
-<option value="574">PAK: Niaz Stadium, Hyderabad</option>
-<option value="402">PAK: Peshawar Club Ground</option>
-<option value="337">PAK: Pindi Club Ground, Rawalpindi</option>
-<option value="1001">PAK: Rawalpindi Cricket Stadium</option>
-<option value="1061">PAK: Sheikhupura Stadium</option>
-<option value="959">PAK: Southend Club Cricket Stadium, Karachi</option>
-<option value="931">SA: Buffalo Park, East London</option>
-<option value="428">SA: Ellis Park, Johannesburg</option>
-<option value="302">SA: Kingsmead, Durban</option>
-<option value="212">SA: Lord's, Durban</option>
-<option value="949">SA: Mangaung Oval, Bloemfontein</option>
-<option value="174">SA: Newlands, Cape Town</option>
-<option value="183">SA: Old Wanderers, Johannesburg</option>
-<option value="1367">SA: Senwes Park, Potchefstroom</option>
-<option value="173">SA: St George's Park, Port Elizabeth</option>
-<option value="902">SA: SuperSport Park, Centurion</option>
-<option value="508">SA: The Wanderers Stadium, Johannesburg</option>
-<option value="726">SL: Asgiriya Stadium, Kandy</option>
-<option value="339">SL: Colombo Cricket Club Ground</option>
-<option value="847">SL: Galle International Stadium</option>
-<option value="416">SL: P Sara Oval, Colombo</option>
-<option value="2503">SL: Pallekele International Cricket Stadium</option>
-<option value="1004">SL: R.Premadasa Stadium, Khettarama, Colombo</option>
-<option value="679">SL: Sinhalese Sports Club Ground, Colombo</option>
-<option value="835">SL: Tyronne Fernando Stadium, Moratuwa</option>
-<option value="2439">UAE: Dubai International Cricket Stadium</option>
-<option value="848">UAE: Sharjah Cricket Stadium</option>
-<option value="1965">UAE: Sheikh Zayed Stadium, Abu Dhabi</option>
-<option value="547">WI: Antigua Recreation Ground, St John's, Antigua</option>
-<option value="680">WI: Arnos Vale Ground, Kingstown, St Vincent</option>
-<option value="169">WI: Bourda, Georgetown, Guyana</option>
-<option value="1697">WI: Darren Sammy National Cricket Stadium, Gros Islet, St Lucia</option>
-<option value="199">WI: Kensington Oval, Bridgetown, Barbados</option>
-<option value="1131">WI: National Cricket Stadium, St George's, Grenada</option>
-<option value="1986">WI: Providence Stadium, Guyana</option>
-<option value="208">WI: Queen's Park Oval, Port of Spain, Trinidad</option>
-<option value="200">WI: Sabina Park, Kingston, Jamaica</option>
-<option value="1985">WI: Sir Vivian Richards Stadium, North Sound, Antigua</option>
-<option value="576">WI: Warner Park, Basseterre, St Kitts</option>
-<option value="629">WI: Windsor Park, Roseau, Dominica</option>
-<option value="459">ZIM: Bulawayo Athletic Club</option>
-<option value="260">ZIM: Harare Sports Club</option>
-<option value="261">ZIM: Queens Sports Club, Bulawayo</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Starting date:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<input type="hidden" name="spanmin0" value="15 Mar 1877">
-<input type="hidden" name="spanmax0" value="06 Jun 2018">
-<input type="hidden" name="spanval1" value="span">
-from <input type="text" name="spanmin1" class="guruInput" value="15 Mar 1877" size=11 maxlength=11>
-  to <input type="text" name="spanmax1" class="guruInput" value="06 Jun 2018" size=11 maxlength=11>
-or
-<script language="JavaScript" type="text/javascript">
-<!--
-var spanminarray = new Array();
-var spanmaxarray = new Array();
-spanminarray[0] = "15 Mar 1877";
-spanmaxarray[0] = "06 Jun 2018";
-spanminarray[1] = "01 Jan 2018";
-spanmaxarray[1] = "31 Dec 2018";
-spanminarray[2] = "01 Jan 2017";
-spanmaxarray[2] = "31 Dec 2017";
-spanminarray[3] = "13 Jun 2017";
-spanmaxarray[3] = "13 Jun 2018";
-spanminarray[4] = "13 Jun 2016";
-spanmaxarray[4] = "13 Jun 2018";
-spanminarray[5] = "13 Jun 2015";
-spanmaxarray[5] = "13 Jun 2018";
-spanminarray[6] = "13 Jun 2014";
-spanmaxarray[6] = "13 Jun 2018";
-spanminarray[7] = "13 Jun 2013";
-spanmaxarray[7] = "13 Jun 2018";
-spanminarray[8] = "13 Jun 2008";
-spanmaxarray[8] = "13 Jun 2018";
-spanminarray[9] = "01 Jan 2000";
-spanmaxarray[9] = "31 Dec 2009";
-spanminarray[10] = "01 Jan 1990";
-spanmaxarray[10] = "31 Dec 1999";
-spanminarray[11] = "01 Jan 1980";
-spanmaxarray[11] = "31 Dec 1989";
-spanminarray[12] = "01 Jan 1970";
-spanmaxarray[12] = "31 Dec 1979";
-spanminarray[13] = "01 Jan 1960";
-spanmaxarray[13] = "31 Dec 1969";
-spanminarray[14] = "01 Jan 1950";
-spanmaxarray[14] = "31 Dec 1959";
-spanminarray[15] = "01 Jan 1940";
-spanmaxarray[15] = "31 Dec 1949";
-spanminarray[16] = "01 Jan 1930";
-spanmaxarray[16] = "31 Dec 1939";
-spanminarray[17] = "01 Jan 1920";
-spanmaxarray[17] = "31 Dec 1929";
-spanminarray[18] = "01 Jan 1910";
-spanmaxarray[18] = "31 Dec 1919";
-spanminarray[19] = "01 Jan 1900";
-spanmaxarray[19] = "31 Dec 1909";
-spanminarray[20] = "01 Jan 1890";
-spanmaxarray[20] = "31 Dec 1899";
-spanminarray[21] = "01 Jan 1880";
-spanmaxarray[21] = "31 Dec 1889";
-spanminarray[22] = "01 Jan 1870";
-spanmaxarray[22] = "31 Dec 1879";
-spanminarray[23] = "01 Jan 2001";
-spanmaxarray[23] = "31 Dec 2100";
-spanminarray[24] = "01 Jan 1901";
-spanmaxarray[24] = "31 Dec 2000";
-spanminarray[25] = "01 Jan 1801";
-spanmaxarray[25] = "31 Dec 1900";
-function spanonChange()
-    {
-    var Current = document.gurumenu.spanquickpick.selectedIndex;
-    document.gurumenu.spanmin1.value = spanminarray[Current];
-    document.gurumenu.spanmax1.value = spanmaxarray[Current];
-    }
-//-->
-</script>
-<select name="spanquickpick" onChange="spanonChange()" class="guruDropdown">
-<option value="0">- quick pick -</option>
-<option value="1">matches starting this year</option>
-<option value="2">matches starting last year</option>
-<option value="3">last 12 months</option>
-<option value="4">last 2 years</option>
-<option value="5">last 3 years</option>
-<option value="6">last 4 years</option>
-<option value="7">last 5 years</option>
-<option value="8">last 10 years</option>
-<option value="9">2000s</option>
-<option value="10">1990s</option>
-<option value="11">1980s</option>
-<option value="12">1970s</option>
-<option value="13">1960s</option>
-<option value="14">1950s</option>
-<option value="15">1940s</option>
-<option value="16">1930s</option>
-<option value="17">1920s</option>
-<option value="18">1910s</option>
-<option value="19">1900s</option>
-<option value="20">1890s</option>
-<option value="21">1880s</option>
-<option value="22">1870s</option>
-<option value="23">21st century</option>
-<option value="24">20th century</option>
-<option value="25">19th century</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Season:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<select name="season" class="guruDropdown" style="vertical-align: middle; width:100%;">
-<option selected value="">all seasons</option>
-<option value="1876/77">1876/77</option>
-<option value="1878/79">1878/79</option>
-<option value="1880">1880</option>
-<option value="1881/82">1881/82</option>
-<option value="1882">1882</option>
-<option value="1882/83">1882/83</option>
-<option value="1884">1884</option>
-<option value="1884/85">1884/85</option>
-<option value="1886">1886</option>
-<option value="1886/87">1886/87</option>
-<option value="1887/88">1887/88</option>
-<option value="1888">1888</option>
-<option value="1888/89">1888/89</option>
-<option value="1890">1890</option>
-<option value="1891/92">1891/92</option>
-<option value="1893">1893</option>
-<option value="1894/95">1894/95</option>
-<option value="1895/96">1895/96</option>
-<option value="1896">1896</option>
-<option value="1897/98">1897/98</option>
-<option value="1898/99">1898/99</option>
-<option value="1899">1899</option>
-<option value="1901/02">1901/02</option>
-<option value="1902">1902</option>
-<option value="1902/03">1902/03</option>
-<option value="1903/04">1903/04</option>
-<option value="1905">1905</option>
-<option value="1905/06">1905/06</option>
-<option value="1907">1907</option>
-<option value="1907/08">1907/08</option>
-<option value="1909">1909</option>
-<option value="1909/10">1909/10</option>
-<option value="1910/11">1910/11</option>
-<option value="1911/12">1911/12</option>
-<option value="1912">1912</option>
-<option value="1913/14">1913/14</option>
-<option value="1920/21">1920/21</option>
-<option value="1921">1921</option>
-<option value="1921/22">1921/22</option>
-<option value="1922/23">1922/23</option>
-<option value="1924">1924</option>
-<option value="1924/25">1924/25</option>
-<option value="1926">1926</option>
-<option value="1927/28">1927/28</option>
-<option value="1928">1928</option>
-<option value="1928/29">1928/29</option>
-<option value="1929">1929</option>
-<option value="1929/30">1929/30</option>
-<option value="1930">1930</option>
-<option value="1930/31">1930/31</option>
-<option value="1931">1931</option>
-<option value="1931/32">1931/32</option>
-<option value="1932">1932</option>
-<option value="1932/33">1932/33</option>
-<option value="1933">1933</option>
-<option value="1933/34">1933/34</option>
-<option value="1934">1934</option>
-<option value="1934/35">1934/35</option>
-<option value="1935">1935</option>
-<option value="1935/36">1935/36</option>
-<option value="1936">1936</option>
-<option value="1936/37">1936/37</option>
-<option value="1937">1937</option>
-<option value="1938">1938</option>
-<option value="1938/39">1938/39</option>
-<option value="1939">1939</option>
-<option value="1945/46">1945/46</option>
-<option value="1946">1946</option>
-<option value="1946/47">1946/47</option>
-<option value="1947">1947</option>
-<option value="1947/48">1947/48</option>
-<option value="1948">1948</option>
-<option value="1948/49">1948/49</option>
-<option value="1949">1949</option>
-<option value="1949/50">1949/50</option>
-<option value="1950">1950</option>
-<option value="1950/51">1950/51</option>
-<option value="1951">1951</option>
-<option value="1951/52">1951/52</option>
-<option value="1952">1952</option>
-<option value="1952/53">1952/53</option>
-<option value="1953">1953</option>
-<option value="1953/54">1953/54</option>
-<option value="1954">1954</option>
-<option value="1954/55">1954/55</option>
-<option value="1955">1955</option>
-<option value="1955/56">1955/56</option>
-<option value="1956">1956</option>
-<option value="1956/57">1956/57</option>
-<option value="1957">1957</option>
-<option value="1957/58">1957/58</option>
-<option value="1958">1958</option>
-<option value="1958/59">1958/59</option>
-<option value="1959">1959</option>
-<option value="1959/60">1959/60</option>
-<option value="1960">1960</option>
-<option value="1960/61">1960/61</option>
-<option value="1961">1961</option>
-<option value="1961/62">1961/62</option>
-<option value="1962">1962</option>
-<option value="1962/63">1962/63</option>
-<option value="1963">1963</option>
-<option value="1963/64">1963/64</option>
-<option value="1964">1964</option>
-<option value="1964/65">1964/65</option>
-<option value="1965">1965</option>
-<option value="1965/66">1965/66</option>
-<option value="1966">1966</option>
-<option value="1966/67">1966/67</option>
-<option value="1967">1967</option>
-<option value="1967/68">1967/68</option>
-<option value="1968">1968</option>
-<option value="1968/69">1968/69</option>
-<option value="1969">1969</option>
-<option value="1969/70">1969/70</option>
-<option value="1970/71">1970/71</option>
-<option value="1971">1971</option>
-<option value="1971/72">1971/72</option>
-<option value="1972">1972</option>
-<option value="1972/73">1972/73</option>
-<option value="1973">1973</option>
-<option value="1973/74">1973/74</option>
-<option value="1974">1974</option>
-<option value="1974/75">1974/75</option>
-<option value="1975">1975</option>
-<option value="1975/76">1975/76</option>
-<option value="1976">1976</option>
-<option value="1976/77">1976/77</option>
-<option value="1977">1977</option>
-<option value="1977/78">1977/78</option>
-<option value="1978">1978</option>
-<option value="1978/79">1978/79</option>
-<option value="1979">1979</option>
-<option value="1979/80">1979/80</option>
-<option value="1980">1980</option>
-<option value="1980/81">1980/81</option>
-<option value="1981">1981</option>
-<option value="1981/82">1981/82</option>
-<option value="1982">1982</option>
-<option value="1982/83">1982/83</option>
-<option value="1983">1983</option>
-<option value="1983/84">1983/84</option>
-<option value="1984">1984</option>
-<option value="1984/85">1984/85</option>
-<option value="1985">1985</option>
-<option value="1985/86">1985/86</option>
-<option value="1986">1986</option>
-<option value="1986/87">1986/87</option>
-<option value="1987">1987</option>
-<option value="1987/88">1987/88</option>
-<option value="1988">1988</option>
-<option value="1988/89">1988/89</option>
-<option value="1989">1989</option>
-<option value="1989/90">1989/90</option>
-<option value="1990">1990</option>
-<option value="1990/91">1990/91</option>
-<option value="1991">1991</option>
-<option value="1991/92">1991/92</option>
-<option value="1992">1992</option>
-<option value="1992/93">1992/93</option>
-<option value="1993">1993</option>
-<option value="1993/94">1993/94</option>
-<option value="1994">1994</option>
-<option value="1994/95">1994/95</option>
-<option value="1995">1995</option>
-<option value="1995/96">1995/96</option>
-<option value="1996">1996</option>
-<option value="1996/97">1996/97</option>
-<option value="1997">1997</option>
-<option value="1997/98">1997/98</option>
-<option value="1998">1998</option>
-<option value="1998/99">1998/99</option>
-<option value="1999">1999</option>
-<option value="1999/00">1999/00</option>
-<option value="2000">2000</option>
-<option value="2000/01">2000/01</option>
-<option value="2001">2001</option>
-<option value="2001/02">2001/02</option>
-<option value="2002">2002</option>
-<option value="2002/03">2002/03</option>
-<option value="2003">2003</option>
-<option value="2003/04">2003/04</option>
-<option value="2004">2004</option>
-<option value="2004/05">2004/05</option>
-<option value="2005">2005</option>
-<option value="2005/06">2005/06</option>
-<option value="2006">2006</option>
-<option value="2006/07">2006/07</option>
-<option value="2007">2007</option>
-<option value="2007/08">2007/08</option>
-<option value="2008">2008</option>
-<option value="2008/09">2008/09</option>
-<option value="2009">2009</option>
-<option value="2009/10">2009/10</option>
-<option value="2010">2010</option>
-<option value="2010/11">2010/11</option>
-<option value="2011">2011</option>
-<option value="2011/12">2011/12</option>
-<option value="2012">2012</option>
-<option value="2012/13">2012/13</option>
-<option value="2013">2013</option>
-<option value="2013/14">2013/14</option>
-<option value="2014">2014</option>
-<option value="2014/15">2014/15</option>
-<option value="2015">2015</option>
-<option value="2015/16">2015/16</option>
-<option value="2016">2016</option>
-<option value="2016/17">2016/17</option>
-<option value="2017">2017</option>
-<option value="2017/18">2017/18</option>
-<option value="2018">2018</option>
-</select>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>Match result:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="result" value="1"> won match</label>
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="result" value="2"> lost match</label>
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="result" value="3"> tied match</label>
-<label class="guruCheckboxLabel"><input type="checkbox" class="guruCheckbox" name="result" value="4"> drawn match</label>
-</td>
-</tr>
-<tr style="height:29px; vertical-align:middle;">
-<td style="border-bottom:1px solid #b2b2b2;"><b>View format:&nbsp;</b></td>
-<td style="font-size: 11px; color: #333333; padding:4px 0px; border-bottom:1px solid #b2b2b2;">
-<table cellpadding=0 cellspacing=0 border=0 width="100%">
-<tr>
- <td colspan=3><input type="hidden" name="type" value="batting"></td>
-</tr>
-<tr valign=top>
- <td style="font-size: 11px; color: #333333;">
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="" checked onclick="guruViewChange()">
-Overall figures
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="innings" onclick="guruViewChange()">
-Innings by innings list
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="match" onclick="guruViewChange()">
-Match totals
-</label><br>
 
- </td>
- <td style="font-size: 11px; color: #333333;">
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="series" onclick="guruViewChange()">
-Series averages
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="ground" onclick="guruViewChange()">
-Ground averages
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="host" onclick="guruViewChange()">
-By host country
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="opposition" onclick="guruViewChange()">
-By opposition team
-</label><br>
-
- </td>
- <td style="font-size: 11px; color: #333333;">
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="year" onclick="guruViewChange()">
-By year of match start
-</label><br>
-<label class="guruRadioLabel">
-<input type="radio" class="guruRadio" name="view" value="season" onclick="guruViewChange()">
-By season
-</label><br>
- </td>
-</tr>
-</table>
-</td>
-</tr>
-<tr style="height:38px; vertical-align:middle;">
-<td>
-</td>
-<td>
-
- <table cellpadding=0 cellspacing=0 border=0 width="100%">
- <tr>
-  <td>
-  <input type="submit" class="guruButton" style="width: 200px;" name="submit_results" value="Submit query">
-  </td>
-  <td align=right>
-  <input type="submit" class="guruButton" style="width: 100px;" name="submit" value="Add to query">
-  &nbsp;
-  <input type="submit" class="guruButton" style="width: 100px;" name="submit_reset" value="Reset query">
-  </td>
- </tr>
- </table>
-
-</td>
-</tr>
-</table>
+<div class="left">
+<form method="post" novalidate>
+  {% csrf_token %}
+  <table style="width:50%;text-align:center">
+  {{ form.as_ul }}
+  </table>
+  <button type="submit">Submit</button>
 </form>
-<p></p>
-<b>Search by player</b>
-<form name="analysis" method="GET" enctype="application/x-www-form-urlencoded" action="/ci/engine/stats/analysis.html" style="margin: 0px; padding: 0px;">
-<p class="ciResultsTxt">Enter the name of an international player, team, ground or umpire/referee:<br>
-<div style="height:6px;"></div>
-<input type="text"   name="search" class="guruInput" value="" size="58" maxlength="60">
-<input type="submit" name="submit_analysis" class="guruButton" value="Search"> or 
-<input type="submit" name="submit_random"   class="guruButton" value="30 random entries">
-</p></form>
+</div>
+<div class="right">
 
+{% if 2 in list_range %}
+
+{% if populated_cd.type == 'batting' and populated_cd.class == '1' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>NO</th><th>Runs</th><th>HS</th><th>Ave</th><th>100s</th><th>50s</th><th>0s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ batting_list|list_index:i|list_index:0 }}
+    </td><td>{{ batting_list|list_index:i|list_index:1 }}</td><td>{{ batting_list|list_index:i|list_index:2 }}</td><td>{{ batting_list|list_index:i|list_index:3 }}</td><td>{{ batting_list|list_index:i|list_index:4 }}</td><td>{{ batting_list|list_index:i|list_index:5 }}</td><td>{{ batting_list|list_index:i|list_index:6 }}</td><td>{{ batting_list|list_index:i|list_index:7 }}</td><td>{{ batting_list|list_index:i|list_index:8 }}</td><td>{{ batting_list|list_index:i|list_index:9 }}</td><td>{{ batting_list|list_index:i|list_index:10 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'batting' and populated_cd.class == '2' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>NO</th><th>Runs</th><th>HS</th><th>Ave</th><th>BF</th><th>SR</th><th>100s</th><th>50s</th><th>0s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ batting_list|list_index:i|list_index:0 }}
+    </td><td>{{ batting_list|list_index:i|list_index:1 }}</td><td>{{ batting_list|list_index:i|list_index:2 }}</td><td>{{ batting_list|list_index:i|list_index:3 }}</td><td>{{ batting_list|list_index:i|list_index:4 }}</td><td>{{ batting_list|list_index:i|list_index:5 }}</td><td>{{ batting_list|list_index:i|list_index:6 }}</td><td>{{ batting_list|list_index:i|list_index:7 }}</td><td>{{ batting_list|list_index:i|list_index:8 }}</td><td>{{ batting_list|list_index:i|list_index:9 }}</td><td>{{ batting_list|list_index:i|list_index:10 }}</td><td>{{ batting_list|list_index:i|list_index:11 }}</td><td>{{ batting_list|list_index:i|list_index:12 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% elif populated_cd.type == 'batting' and populated_cd.class == '3' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>NO</th><th>Runs</th><th>HS</th><th>Ave</th><th>BF</th><th>SR</th><th>100s</th><th>50s</th><th>0s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ batting_list|list_index:i|list_index:0 }}
+    </td><td>{{ batting_list|list_index:i|list_index:1 }}</td><td>{{ batting_list|list_index:i|list_index:2 }}</td><td>{{ batting_list|list_index:i|list_index:3 }}</td><td>{{ batting_list|list_index:i|list_index:4 }}</td><td>{{ batting_list|list_index:i|list_index:5 }}</td><td>{{ batting_list|list_index:i|list_index:6 }}</td><td>{{ batting_list|list_index:i|list_index:7 }}</td><td>{{ batting_list|list_index:i|list_index:8 }}</td><td>{{ batting_list|list_index:i|list_index:9 }}</td><td>{{ batting_list|list_index:i|list_index:10 }}</td><td>{{ batting_list|list_index:i|list_index:11 }}</td><td>{{ batting_list|list_index:i|list_index:12 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% elif populated_cd.type == 'bowling' and populated_cd.class == '1' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Matches</th><th>Inns</th><th>Overs</th><th>Mdns</th><th>Runs</th><th>Wkts</th><th>BBI</th><th>BBM</th><th>Ave</th><th>Econ</th><th>SR</th><th>5s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ bowling_list|list_index:i|list_index:0 }}</td><td>{{ bowling_list|list_index:i|list_index:1 }}</td><td>{{ bowling_list|list_index:i|list_index:2 }}</td><td>{{ bowling_list|list_index:i|list_index:3 }}</td><td>{{ bowling_list|list_index:i|list_index:4 }}</td><td>{{ bowling_list|list_index:i|list_index:5 }}</td><td>{{ bowling_list|list_index:i|list_index:6 }}</td><td>{{ bowling_list|list_index:i|list_index:7 }}</td><td>{{ bowling_list|list_index:i|list_index:8 }}</td><td>{{ bowling_list|list_index:i|list_index:9 }}</td><td>{{ bowling_list|list_index:i|list_index:10 }}</td><td>{{ bowling_list|list_index:i|list_index:11 }}</td><td>{{ bowling_list|list_index:i|list_index:12 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'bowling' and populated_cd.class == '2' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th>{% if populated_cd.result == '3' %}<th>Overs</th><th>Maidens</th>{% else %}<th>Balls</th>{% endif %}<th>Runs</th><th>Wkts</th><th>BBI</th><th>Ave</th><th>Econ</th><th>SR</th><th>4s</th><th>5s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ bowling_list|list_index:i|list_index:0 }}</td><td>{{ bowling_list|list_index:i|list_index:1 }}</td><td>{{ bowling_list|list_index:i|list_index:2 }}</td><td>{{ bowling_list|list_index:i|list_index:3 }}</td><td>{{ bowling_list|list_index:i|list_index:4 }}</td><td>{{ bowling_list|list_index:i|list_index:5 }}</td><td>{{ bowling_list|list_index:i|list_index:6 }}</td><td>{{ bowling_list|list_index:i|list_index:7 }}</td><td>{{ bowling_list|list_index:i|list_index:8 }}</td><td>{{ bowling_list|list_index:i|list_index:9 }}</td><td>{{ bowling_list|list_index:i|list_index:10 }}</td><td>{{ bowling_list|list_index:i|list_index:11 }}</td><td>{{ bowling_list|list_index:i|list_index:12 }}</td>{% if populated_cd.result == '3' %}<td>{{ bowling_list|list_index:i|list_index:13 }}{% endif %}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'bowling' and populated_cd.class == '3' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>Overs</th><th>Maidens</th><th>Runs</th><th>Wkts</th><th>BBI</th><th>Ave</th><th>Econ</th><th>SR</th><th>4s</th><th>5s</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ bowling_list|list_index:i|list_index:0 }}</td><td>{{ bowling_list|list_index:i|list_index:1 }}</td><td>{{ bowling_list|list_index:i|list_index:2 }}</td><td>{{ bowling_list|list_index:i|list_index:3 }}</td><td>{{ bowling_list|list_index:i|list_index:4 }}</td><td>{{ bowling_list|list_index:i|list_index:5 }}</td><td>{{ bowling_list|list_index:i|list_index:6 }}</td><td>{{ bowling_list|list_index:i|list_index:7 }}</td><td>{{ bowling_list|list_index:i|list_index:8 }}</td><td>{{ bowling_list|list_index:i|list_index:9 }}</td><td>{{ bowling_list|list_index:i|list_index:10 }}</td><td>{{ bowling_list|list_index:i|list_index:11 }}</td><td>{{ bowling_list|list_index:i|list_index:12 }}</td><td>{{ bowling_list|list_index:i|list_index:13 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'fielding' and populated_cd.class == '1' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>Dis</th><th>Ct</th><th>St</th><th>Wk</th><th>Ct as Fi</th><th>MD</th><th>D/I</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ fielding_list|list_index:i|list_index:0 }}</td><td>{{ fielding_list|list_index:i|list_index:1 }}</td><td>{{ fielding_list|list_index:i|list_index:2 }}</td><td>{{ fielding_list|list_index:i|list_index:3 }}</td><td>{{ fielding_list|list_index:i|list_index:4 }}</td><td>{{ fielding_list|list_index:i|list_index:5 }}</td><td>{{ fielding_list|list_index:i|list_index:6 }}</td><td>{{ fielding_list|list_index:i|list_index:7 }}</td><td>{{ fielding_list|list_index:i|list_index:8 }}</td><td>{{ fielding_list|list_index:i|list_index:9 }}</td><td>{{ fielding_list|list_index:i|list_index:10 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'fielding' and populated_cd.class == '2' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th><th>Span</th><th>Matches</th><th>Inns</th><th>Dis</th><th>Ct</th><th>St</th><th>Wk</th><th>Ct as Fi</th><th>MD</th><th>D/I</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ fielding_list|list_index:i|list_index:0 }}</td><td>{{ fielding_list|list_index:i|list_index:1 }}</td><td>{{ fielding_list|list_index:i|list_index:2 }}</td><td>{{ fielding_list|list_index:i|list_index:3 }}</td><td>{{ fielding_list|list_index:i|list_index:4 }}</td><td>{{ fielding_list|list_index:i|list_index:5 }}</td><td>{{ fielding_list|list_index:i|list_index:6 }}</td><td>{{ fielding_list|list_index:i|list_index:7 }}</td><td>{{ fielding_list|list_index:i|list_index:8 }}</td><td>{{ fielding_list|list_index:i|list_index:9 }}</td><td>{{ fielding_list|list_index:i|list_index:10 }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% elif populated_cd.type == 'fielding' and populated_cd.class == '3' %}
+<table class="right sortable">
+<caption>Results</caption>
+<thead>
+<tr><th>Player</th>{% if not populated_cd.result == '3' %}<th>Span</th>{% endif %}<th>Matches</th><th>Inns</th><th>Dis</th><th>Ct</th><th>St</th><th>Wk</th><th>Ct as Fi</th><th>MD</th><th>D/I</th></tr>
+</thead>
+<tbody>
+{% for i in list_range %}
+    <tr><td>{{ fielding_list|list_index:i|list_index:0 }}</td><td>{{ fielding_list|list_index:i|list_index:1 }}</td><td>{{ fielding_list|list_index:i|list_index:2 }}</td><td>{{ fielding_list|list_index:i|list_index:3 }}</td><td>{{ fielding_list|list_index:i|list_index:4 }}</td><td>{{ fielding_list|list_index:i|list_index:5 }}</td><td>{{ fielding_list|list_index:i|list_index:6 }}</td><td>{{ fielding_list|list_index:i|list_index:7 }}</td><td>{{ fielding_list|list_index:i|list_index:8 }}</td><td>{{ fielding_list|list_index:i|list_index:9 }}</td>{% if not populated_cd.result == '3' %}<td>{{ fielding_list|list_index:i|list_index:10 }}</td>{% endif %}</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+{% endif %}
+
+{% else %}
+No data
+{% endif %}
+</div>
 {% endblock content %}
